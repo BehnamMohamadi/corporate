@@ -1,6 +1,12 @@
 const { Schema, model } = require("mongoose");
 
 const EmployeeSchema = new Schema({
+  corporate: {
+    type: Schema.Types.ObjectId,
+    ref: "Corporate",
+    required: true,
+  },
+
   firstName: {
     type: String,
     minlength: 3,
@@ -49,12 +55,6 @@ const EmployeeSchema = new Schema({
     type: String,
     required: false,
     default: "not-set",
-  },
-  companyName: {
-    type: String,
-    required: true,
-    minlength: 2,
-    maxlength: 40,
   },
   role: {
     type: String,

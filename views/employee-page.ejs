@@ -14,18 +14,14 @@
       <div class="modal-header">
         <h2 id="modalHeader"></h2>
       </div>
+      <div class="modal-error-body" id="modalErroBody"></div>
       <div class="modal-body" id="modalBody"></div>
       <div class="modal-footer" id="modalFooter"></div>
     </div>
   </div>
 
   <div class="employee-details">
-    <h2>
-      اطلاعات کارمند
-    </h2>
-    <p>آیدی: <span id="employee-id">
-        <%=employee._id %>
-      </span></p>
+    <h2>اطلاعات کارمند</h2>
     <p>نام: <span>
         <%= employee.firstName %>
       </span></p>
@@ -45,14 +41,14 @@
     <p>نام شرکت: <span><%= employee.companyName %></span></p>
     <p>نقش: <span><%= employee.role %></span></p>
     <p>تاریخ ثبت‌ نام: <span><%= new Date(employee.registrationDate).toLocaleDateString('fa-IR') %></span></p>
-
     <div class=" buttons">
           <a class="edit-button" onclick="renderUpdateEmployee('<%= employee._id %>')">ویرایش اطلاعات</a>
-          <a class="delete-button">حذف اطلاعات</a>
+          <a class="delete-button" onclick="removeEmployee('<%= employee._id %>')">حذف اطلاعات</a>
   </div>
   </div>
+
   <script src="/javascripts/modal.js"></script>
-  <script src="/javascripts/main.js"></script>
+  <script src="/javascripts/employee-page.js"></script>
 </body>
 
 </html>

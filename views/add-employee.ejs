@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+  <meta charset="UTF-8">
+  <title>افزودن کارمند جدید</title>
+  <link rel="stylesheet" href="/style-sheet/add-employee.css">
+</head>
+
+<body>
+  <h1>افزودن کارمند جدید</h1>
+  <div class="add-employee-form">
+    <div class="error-message">
+
+    </div>
+
+    <div class="inputs-box">
+      <input id="firstName" type="text" placeholder="نام" required minlength="3" maxlength="30" value="bbbb">
+      <input id="lastName" type="text" placeholder="نام خانوادگی" required minlength="3" maxlength="30" value="bbbb">
+      <input id="birthDate" type="date" placeholder="تاریخ تولد" required value="1999-09-09">
+      <input id="gender" type="text" placeholder="جنسیت" required value="man">
+      <input id="phoneNumber" type="text" placeholder="شماره تلفن" required pattern="^09[0-9]{9}$" value="09354545445">
+      <input id="nationalId" type="text" placeholder="کد ملی" required pattern="^[0-9]{10}$" value="0311548994">
+      <input id="city" type="text" placeholder="شهر" required value="bbbb">
+      <input id="companyName" type="text" placeholder="نام شرکت" required value="bbbb">
+      <input id="role" type="text" placeholder="نقش" required value="manager">
+
+      <a class="add-button" onclick="addEmployee()">افزودن کارمند</a>
+    </div>
+  </div>
+
+  <a class="back-button" href=" http://127.0.0.1:8000/view/employees">بازگشت</a>
+
+  <script src="/javascripts/add-employee.js"></script>
+</body>
+
+</html>

@@ -1,7 +1,5 @@
 const router = require("express").Router();
 const { join } = require("node:path");
-const Employee = require("../models/employee-model");
-const AppError = require("../utils/app-error.js");
 
 router.get("/", (request, response) => {
   response.status(200).send("view");
@@ -27,4 +25,9 @@ router.get("/employee/:id", async (request, response) => {
   });
 });
 
+router.get("/add-employee", async (request, response) => {
+  response.status(200).render(join(__dirname, "../views/add-employee.ejs"));
+});
+
+router.get("/employee/new");
 module.exports = router;

@@ -37,6 +37,12 @@ app.all("*", (request, response, next) => {
 
 // Global Error Handler
 app.use((err, request, response, next) => {
+  // if (typeof err?.message === "string" && err?.message.includes("Cast to ObjectId")) {
+  //   err.status = "fail";
+  //   err.statusCode = 400;
+  //   err.message = "id is not valid";
+  // }
+  console.log(err);
   const { statusCode = 500, status = "error", message = "internal server error" } = err;
 
   response.status(statusCode).json({ status, message });

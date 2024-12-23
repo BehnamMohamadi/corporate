@@ -1,7 +1,6 @@
 const { body, validationResult } = require("express-validator");
 const { AppError } = require("../utils/app-error");
 
-// Middleware for validating employee data
 const validateEmployee = [
   body("firstName")
     .isString()
@@ -17,10 +16,9 @@ const validateEmployee = [
   body("gender")
     .optional()
     .isIn(["woman", "man", "not-set"])
-    .withMessage("gender is not validate"),
+    .withMessage("gender is not valid"),
 
   body("birthDate").isDate().withMessage("birth type is not validate"),
-
   body("phoneNumber")
     .isArray()
     .withMessage("phoneNumber type is not validate")
@@ -39,11 +37,6 @@ const validateEmployee = [
     .withMessage("nationalId is not valid"),
 
   body("city").optional().isString().withMessage("city type is not valid"),
-
-  body("companyName")
-    .isString()
-    .isLength({ min: 2, max: 40 })
-    .withMessage("companyName between 2and 40 charector"),
 
   body("role").optional().isIn(["employee", "manager"]).withMessage("role is not valid"),
 

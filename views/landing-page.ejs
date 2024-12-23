@@ -4,38 +4,48 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>شرکت ...</title>
+  <title>corporate</title>
   <link rel="stylesheet" href="/style-sheet/landing-page-style.css">
 </head>
 
 <body>
 
-  <div class="employees">
-    <% employees.forEach((employee,index)=> { %>
-      <div class="employee-card">
-        <div class="card-mainpart">
-          <p>نام: <span>
-              <%= employee.firstName %>
-            </span></p>
-          <p>نام خانوادگی: <span>
-              <%= employee.lastName %>
-            </span></p>
-          <p>جنسیت: <span>
-              <%= employee.gender %>
-            </span></p>
-          <p>سن: <span>
-              <%= new Date().getFullYear() - new Date(employee.birthDate).getFullYear() %>
-            </span></p>
-          <p>نام شرکت: <span>
-              <%= employee.companyName %>
-            </span></p>
+  <% if (employees) { %>
+    <div class="add-employee">
+      <a href="http://127.0.0.1:8000/view/add-employee">افزودن کارمند جدید</a>
+    </div>
+    <div class="employees">
+      <% employees.forEach((employee, index)=> { %>
+        <div class="employee-card">
+          <div class="card-mainpart">
+            <p>نام: <span>
+                <%= employee.firstName %>
+              </span>
+            </p>
+            <p>نام خانوادگی: <span>
+                <%= employee.lastName %>
+              </span>
+            </p>
+            <p>جنسیت: <span>
+                <%= employee.gender %>
+              </span>
+            </p>
+            <p>سن: <span>
+                <%= employee.birthDate %>
+              </span>
+            </p>
+            <p>نام شرکت: <span>
+                <%= employee.companyName %>
+              </span>
+            </p>
+          </div>
+          <div class="card-footer">
+            <a class="more-info" href="http://127.0.0.1:8000/view/employee/<%= employee.id %>">اطلاعات بیشتر</a>
+          </div>
         </div>
-        <div class="card-footer">
-          <a class="more-info" href="http://127.0.0.1:8000/view/employee/<%= employee.id %>">اطلاعات بیشتر</a>
-        </div>
-      </div>
-      <% }) %>
-  </div>
+        <% }) %>
+    </div>
+    <% } %>
 
 </body>
 
